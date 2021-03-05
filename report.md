@@ -1,7 +1,9 @@
 ---
-title: Title of the report
-author: Ankush Menat
-date: 42 Feb 2042
+title: "End Term Project Report: otoDecks"
+author: Mohammad Hussain Nagaria
+date: 5 March, 2021
 ---
 
-...Content beigns here...
+
+# Introduction
+
