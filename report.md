@@ -26,6 +26,55 @@ Detailed information on the achievements of different requirements makes the res
 
 ## R3: The Music Library
 
+The Music Library Component has been *encapsulated* into a component called: `MusicLibrary`. It takes 3 constructor arguments: pointers to the 2 `DJAudioPlayer`s and pointer to the `DeckPanel` component. This component is **resizable**, so the user can drag along the top edge to change its height. The resizing was made possible using the `ResizableBorderComponent` inside the `DeckPanel` and some bounds setting in the `resized()` method of the main component:
+
+```cpp
+deckPanel.setBounds(
+    deckPanel.getX(), 
+    deckPanel.getY(), 
+    getWidth(), 
+    deckPanel.getHeight()
+);
+
+musicPanel.setBounds(
+    0, 
+    deckPanel.getHeight(), 
+    getWidth(), 
+    getHeight() - deckPanel.getHeight()
+);
+```
+`musicPanel` is the name of the instance of MusicLibrary created in the MainComponent Class.
+
+The first problem at hand was to add some persistent storage. While browsing through the JUCE documentation, I came across `juce::PropertiesFile` class. This class can be used to maintain a file for application data. The music library creates a pointer to a `PropertiesFile` and sets it up in the constructor via a method called `loadPlaylist`:
+
+```cpp
+void MusicLibrary::loadPlaylist() {
+
+    // Configure options for properties file
+    juce::PropertiesFile::Options playlistFileOptions;
+    playlistFileOptions.applicationName = "music";
+    playlistFileOptions.filenameSuffix = ".playlist";
+    playlistFileOptions.folderName = "userMusicData";
+    // ... other configuration omitted here
+
+    // Create Property File object
+    playlistFile = new juce::PropertiesFile(playlistFileOptions);
+
+    // Load playlist
+    int numSongs = playlistFile->getAllProperties().size();
+
+    // Resize the vector to required size
+    songs.resize(numSongs, juce::String());
+
+    // Get all StringPairs from properties file
+    juce::StringPairArray songArray = playlistFile->getAllProperties();
+
+    // Fill the vector with song file paths
+    // ...
+}
+```
+
+I have **used this file to store paths to song/track** files. The content of the file is *loaded into the memory* (in a vector of `juce::String`s called `songs`, which is a private member of the MusicLibrary class) at the end of the method given above. Hence, whenever the application is started, previously *saved playlist* is loaded into the memory and displayed via the `TableListBox` component. (R3E)
 
 ## R4: The New GUI Layout
 
