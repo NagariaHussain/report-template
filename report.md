@@ -191,5 +191,12 @@ void MusicLibrary::cellClicked(...)
 
 ## R4: The New GUI Layout
 
+I have tried to give the User Interface a complete overhaul using different **colors**, a **new layout** and also **resizable panels**.
+
+A *difference between the old and the new GUI* can easily be observed by seeing the screenshots below:
+
+[Screenshot of Old GUI]
+
+[Screenshot of the New GUI]
 
 # Conclusion
