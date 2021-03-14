@@ -202,7 +202,27 @@ A *difference between the old and the new GUI* can easily be observed by seeing 
 Two `juce::LookAndFeel_V4` objects are used to **apply color theme** to the GUI. 
 One is created and applied to the `MainComponent` itself and other one (called `playlistComponentTheme`) in the `MusicLibrary` component. Both the objects are private to thier respective component classes.
 
+There are private methods called `setCustomTheme` in both the above mentioned components to apply colors to different types of component parts. The `setColour()` method is called on the `LookAndFeel_V4` object to set colors for different UI specifications. The below code snippet shows the setting of some colours:
 
+```cpp
+// MainComponent.h
+private:
+    // ...
+    juce::LookAndFeel_V4 themeData;
+    // ...
+
+// MainComponent.cpp
+void MainComponent::setCustomTheme()
+{
+    // primaryColor = juce::Colours::rebeccapurple
+    themeData.setColour(juce::Slider::thumbColourId, primaryColor);
+    themeData.setColour(
+        juce::Slider::ColourIds::textBoxTextColourId, 
+        juce::Colours::white
+    );
+    // ...
+}
+```
 
 # Conclusion
 
