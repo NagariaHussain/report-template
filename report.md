@@ -129,7 +129,7 @@ When the user types something in the box, the music library component *goes into
 
 A very common pattern I have observed in many GUI softwares is that, whenever there is a list of things, the user can right click on a single row of the list and a *contextual menu pops up* (pop up menu). The menu provides the user with some actions that can be performed for that particular row.
 
-I have implemented the same thing in the music library component using `juce::PopupMenu` class and by overriding `cellClicked`. The screenshot below show the pop up menu:
+I have implemented the same thing in the music library component using `juce::PopupMenu` class and by overriding `cellClicked`. The screenshot below shows the pop up menu:
 
 ![ScreenShot of the Pop Up menu]()
 
