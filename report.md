@@ -87,13 +87,13 @@ void MusicLibrary::loadPlaylist() {
 }
 ```
 
-I have **used this file to store paths to song/track** files. The content of the file is *loaded into the memory* (in a vector of `juce::String`s called `songs`, which is a private member of the MusicLibrary class) at the end of the method given above. Hence, whenever the application is started, previously *saved playlist* is loaded into the memory and displayed via the `TableListBox` component. (R3E)
+I have **used this file to store paths to song/track** files. The content of the file is *loaded into the memory* (in a vector of `juce::String`s called `songs`, which is a private member of the MusicLibrary class) at the end of the method given above. Hence, whenever the application is started, previously *saved playlist* is loaded into the memory and displayed via the `TableListBox` component. (**R3E**)
 
 ### Load and Search
 
 Other than a `TableListBox` component, the `MusicLibrary` component also has two other important components described below:
 
-1. **The load button**: This is a TextButton which when clicked prompts the user to select a file. Upon selection the file will be *appended to the end of the playlist* and the properties file (containing the playlist data) will also be **re-written with new playlist state** (R3A). The updating of the playlist file happens in a method called `MusicLibrary::updatePlaylistFile` which carries out the following main operations:
+1. **The load button**: This is a TextButton which when clicked prompts the user to select a file. Upon selection the file will be *appended to the end of the playlist* and the properties file (containing the playlist data) will also be **re-written with new playlist state** (**R3A**). The updating of the playlist file happens in a method called `MusicLibrary::updatePlaylistFile` which carries out the following main operations:
 
 ```cpp
 
@@ -110,7 +110,7 @@ for (size_t i = 0; i < songs.size(); ++i)
 
 This method is called whenever there is change the `songs` vector in the memory to update the file on disk.
 
-2. **A search box** (TextEditor): The user can start typing a track name in this box and the playlist will immediately updated to **show only the songs that contain the search query** (whatever the user has typed in the box). The main logic of this component is encapsulated in a method called `startSearch` which takes in the query string and filters the songs list (R3C):
+2. **A search box** (TextEditor): The user can start typing a track name in this box and the playlist will immediately updated to **show only the songs that contain the search query** (whatever the user has typed in the box). The main logic of this component is encapsulated in a method called `startSearch` which takes in the query string and filters the songs list (**R3C**):
 
 ```cpp
 
@@ -137,7 +137,7 @@ Here is a detailed description of what happens when a particular option is selec
 
 1. **Load in Player 1**: It is very clear from the text what will happen if this option is selected: this particular track will be loaded in Player 1 (or Deck 1).
 
-2. **Load in Player 2**: Selecting this option loads the track in player 2. (R3D)
+2. **Load in Player 2**: Selecting this option loads the track in player 2. (**R3D**)
 
 3. **Move Up**: The playlist I maintain in memory (and also the file on the disk) is **ordered**. The user can easily keep her/his tracks in order. If this option is selected, that specific track is moved up in the playlist. The logic behind this is simple: two elements of the `songs` vector get swapped:
 
@@ -202,7 +202,7 @@ A *difference between the old and the new GUI* can easily be observed by seeing 
 Two `juce::LookAndFeel_V4` objects are used to **apply color theme** to the GUI. 
 One is created and applied to the `MainComponent` itself and other one (called `playlistComponentTheme`) in the `MusicLibrary` component. Both the objects are private to thier respective component classes.
 
-There are private methods called `setCustomTheme` in both the above mentioned components to apply colors to different types of component parts. The `setColour()` method is called on the `LookAndFeel_V4` object to set colors for different UI specifications. The below code snippet shows the setting of some colours:
+There are private methods called `setCustomTheme` in both the above mentioned components to apply colors to different types of component parts. The `setColour()` method is called on the `LookAndFeel_V4` object to set colors for different UI specifications. The below code snippet shows the setting of some colours: (**R4A**)
 
 ```cpp
 // MainComponent.h
