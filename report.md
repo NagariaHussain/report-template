@@ -20,6 +20,19 @@ Detailed information on the achievements of different requirements makes the res
 
 ## R1: Basic Functionality
 
+This application contains all the basic functionality shown in the course lectures (I have been coding along, :)):
+
+1. The user can load audio files into any of the two Decks. This can either be done by **clicking the load button** in the Deck or by **dragging and dropping** a music file onto the deck component. (**R1A**)
+
+2. Music files can be loaded and played simultaneously in the two decks. (**R1B**)
+
+3. The volumes of each of the tracks can be controlled independently, using the volume slider in the deck. (**R1C**)
+
+4. The speeds of each of the tracks playing the two decks can also be controlled independently, using the speed slider in the deck. (**R1D**)
+
+In the lectures, we are shown how to change the play head using a slider. I went one step ahead to change this behavior into something much **more natural**. I have used some mouse click listeners and some geometry to enable the user to **drag the play head rectangle** to change the play head position. This seemed a bit tricky to implement at first, but gave a lot of satisfaction once it was done. The screenshot below shows a user dragging the playhead indicator to a new position (**Extra**):
+
+[Screenshot of play head being dragged to a new position]
 
 ## R2: The Custom Deck Control
 
