@@ -189,6 +189,8 @@ void MusicLibrary::cellClicked(...)
 }
 ```
 
+The data for the table list box is drawn using a method called `drawCellFor()`. The **data is extracted from the `songs` vector** and drawn as text using the drawing context **`g`**. The name of the song is found in a method called `getSongName()` and a string representing the song length (in the format MM:SS) is calculated in the `getLengthString()` method. (**R3B**)
+
 ## R4: The New GUI Layout
 
 I have tried to give the User Interface a complete overhaul using different **colors**, a **new layout** and also **resizable panels**.
