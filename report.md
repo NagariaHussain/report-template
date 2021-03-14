@@ -228,6 +228,20 @@ void MainComponent::setCustomTheme()
 
 # Conclusion
 
+Overall this project was the best project I have got till now in this degree. It required a lot of **problem solving** and planning to get it done. Still there are a lot of areas for improvement. Some of the things that could be added/made better are:
+
+1. The ability to save the mixed track on the disk.
+2. The ability to cut and join tracks.
+3. The app could use some *animations* to make it more fun to use.
+4. More controls and filters!
+
 ## References
 
+1. JUCE Class Reference:
+
+2. JUCE Tutorials:
+
 ## Links
+
+* Tutorial Video: 
+
