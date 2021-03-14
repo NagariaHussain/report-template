@@ -157,6 +157,38 @@ if (rowNumber >= 1)
 
 The method `updatePlaylistState()` is called to update the state of the music library. This method **updates the `TableListBox` component**, **calls `repaint()`** function and also **calls the `updatePlaylistFile()` method** discussed above. 
 
+I have created an `enum` called `PopUpOption` to relate the above options to integers which are used in the `cellClicked` method to detect which one of the options was clicked and then perform the action associated with that option:
+
+```cpp
+
+// MusicLibrary.h
+
+enum PopUpOption
+{
+    LOAD_IN_1 = 1,
+    // ....
+    REMOVE = 4
+};
+
+// MusicLibrary.cpp
+
+void MusicLibrary::cellClicked(...)
+{
+    // ...
+    // If right clicked
+    // show the pop up menu and capture the result
+    result = playlistControlMenu->show();
+
+    // Perform action based on result
+    if (result == PopUpOption::LOAD_IN_1)
+    {
+        // ...
+    }
+
+    // ...
+}
+```
+
 ## R4: The New GUI Layout
 
 
