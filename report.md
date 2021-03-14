@@ -32,7 +32,7 @@ This application contains all the basic functionality shown in the course lectur
 
 In the lectures, we are shown how to change the play head using a slider. I went one step ahead to change this behavior into something much **more natural**. I have used some mouse click listeners and some geometry to enable the user to **drag the play head rectangle** to change the play head position. This seemed a bit tricky to implement at first, but gave a lot of satisfaction once it was done. The screenshot below shows a user dragging the playhead indicator to a new position (**Extra**):
 
-[Screenshot of play head being dragged to a new position]
+![Screenshot of play head being dragged to a new position]()
 
 ## R2: The Custom Deck Control
 
@@ -131,7 +131,7 @@ A very common pattern I have observed in many GUI softwares is that, whenever th
 
 I have implemented the same thing in the music library component using `juce::PopupMenu` class and by overriding `cellClicked`. The screenshot below show the pop up menu:
 
-[ScreenShot Pop Up menu]
+![ScreenShot of the Pop Up menu]()
 
 Here is a detailed description of what happens when a particular option is selected from the pop up menu:
 
@@ -195,8 +195,17 @@ I have tried to give the User Interface a complete overhaul using different **co
 
 A *difference between the old and the new GUI* can easily be observed by seeing the screenshots below:
 
-[Screenshot of Old GUI]
+![Screenshot of Old GUI]()
 
-[Screenshot of the New GUI]
+![Screenshot of the New GUI]()
+
+Two `juce::LookAndFeel_V4` objects are used to **apply color theme** to the GUI. 
+One is created and applied to the `MainComponent` itself and other one (called `playlistComponentTheme`) in the `MusicLibrary` component. Both the objects are private to thier respective component classes.
+
+
 
 # Conclusion
+
+## References
+
+## Links
