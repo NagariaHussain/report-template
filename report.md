@@ -261,7 +261,10 @@ border->setBounds(this->getBounds());
 border->setVisible(true);
 ```
 
-The `juce::ResizableBorderComponent` **automagically (yes!) calls the resize method of its parent component whenever the user drags the border**. The border object gets `delete`d in the destructor.
+The `juce::ResizableBorderComponent` **automagically (yes!) calls the resize method of its parent component whenever the user drags the border**. 
+In the resize() method the parent (here, `MainComponent`), the `MusicLibrary` component is resized to take the rest of the space. (**R4C**)
+
+The border object gets `delete`d in the destructor.
 
 # Conclusion
 
