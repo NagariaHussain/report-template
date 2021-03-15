@@ -201,6 +201,8 @@ A *difference between the old and the new GUI* can easily be observed by seeing 
 
 ![Screenshot of the New GUI]()
 
+### The New LookAndFeel!
+
 Two `juce::LookAndFeel_V4` objects are used to **apply color theme** to the GUI. 
 One is created and applied to the `MainComponent` itself and other one (called `playlistComponentTheme`) in the `MusicLibrary` component. Both the objects are private to thier respective component classes.
 
