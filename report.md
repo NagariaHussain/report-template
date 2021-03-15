@@ -226,42 +226,6 @@ void MainComponent::setCustomTheme()
 }
 ```
 
-
-### The Resizable Panels
-
-Now, coming to the resizable part. We can observe in many software GUIs that the user is **able to resize a particular window by dragging at an edge**. This pattern is very common in the Adobe Suite of products (and many other professional software packages). Therefore, I had it in the back of my mind since the beginning. To do that, I had to *abstract out the two `DeckGUI`s into a single component* (called `DeckPanel` here). 
-
-The code that lets us achieve this resizable window uses the `juce::ResizableBorderComponent` from the JUCE class library[^1]. 
-
-[^1]: https://TODO.com
-
-A pointer to the above class's object is created in `DeckPanel.h` and also a pointer to a `juce::Component` object is created to hold a pointer to the parent component (which is passed as a constructor argument from the parent, in this case, it is the `MainComponent`). 
-
-The below code does the magic:
-
-```cpp
-// DeckPanel.h
-
-juce::ResizableBorderComponent* border;
-// DeckPanel.cpp
-DeckPanel::DeckPanel(...) {
-    addChildComponent(border = new juce::ResizableBorderComponent(
-        this,
-        nullptr
-    ));
-}
-
-// Set the thickness of the border
-// 10 on top egde, 0 on the other edges
-border->setBorderThickness(juce::BorderSize<int>(0, 0, 10, 0));
-border->setBounds(this->getBounds());
-
-// Make the border visible and draggable
-border->setVisible(true);
-```
-
-The `juce::ResizableBorderComponent` **automagically (yes!) calls the resize method of its parent component whenever the user drags the border**. The border object gets `delete`d in the destructor.
-
 # Conclusion
 
 Overall this project was the best project I have got till now in this degree. It required a lot of **problem solving** and planning to get it done. Still there are a lot of areas for improvement. Some of the things that could be added/made better are:
