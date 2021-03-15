@@ -32,10 +32,22 @@ This application contains all the basic functionality shown in the course lectur
 
 In the lectures, we are shown how to change the play head using a slider. I went one step ahead to change this behavior into something much **more natural**. I have used some mouse click listeners and some geometry to enable the user to **drag the play head rectangle** to change the play head position. This seemed a bit tricky to implement at first, but gave a lot of satisfaction once it was done. The screenshot below shows a user dragging the playhead indicator to a new position (**Extra**):
 
-![Screenshot of play head being dragged to a new position]()
+![Draggable](./images/draggable_playhead.png)
 
 ## R2: The Custom Deck Control
+I have used the "IIRFilterAudioSource" to create a low pass filter. There are two sliders that compose this effect. First one controls the QValue and second one controls the cutoff frequency. This component is at the left hand side of the deck.
 
+There is a method named `lowPassFilter()` in the DJAudioPlayer class that carries out the filter:
+
+``cpp
+void DJAudioPlayer::lowPassFilter(double cutoff, double qval)
+{
+    filterCoefficients = filterCoefficients.makeLowPass(
+                                rateSampling, cutoff, qval
+                            );
+    filterAudioSource.setCoefficients(filterCoefficients);
+}
+```
 
 ## R3: The Music Library
 
@@ -125,13 +137,16 @@ for (const auto& song : songs)
 
 When the user types something in the box, the music library component *goes into search mode*, i.e. the boolean variable `showingSearchResults` is set to `true`.
 
+![Screenshot showing search](./images/search_1.png)
+![Screenshot showing search 2](./images/search_2.png)
+
 ### The Pop Up Menu
 
 A very common pattern I have observed in many GUI softwares is that, whenever there is a list of things, the user can right click on a single row of the list and a *contextual menu pops up* (pop up menu). The menu provides the user with some actions that can be performed for that particular row.
 
 I have implemented the same thing in the music library component using `juce::PopupMenu` class and by overriding `cellClicked`. The screenshot below shows the pop up menu:
 
-![ScreenShot of the Pop Up menu]()
+![ScreenShot of the Pop Up menu](./images/pop_up_menu.png)
 
 Here is a detailed description of what happens when a particular option is selected from the pop up menu:
 
@@ -197,9 +212,7 @@ I have tried to give the User Interface a complete overhaul using different **co
 
 A *difference between the old and the new GUI* can easily be observed by seeing the screenshots below:
 
-![Screenshot of Old GUI]()
-
-![Screenshot of the New GUI]()
+![Screenshot of the New GUI](./images/home.png)
 
 ### The New LookAndFeel!
 
@@ -231,6 +244,9 @@ void MainComponent::setCustomTheme()
 ### The Resizable Panels
 
 Now, coming to the resizable part. We can observe in many software GUIs that the user is **able to resize a particular window by dragging at an edge**. This pattern is very common in the Adobe Suite of products (and many other professional software packages). Therefore, I had it in the back of my mind since the beginning. To do that, I had to *abstract out the two `DeckGUI`s into a single component* (called `DeckPanel` here). 
+
+![Screenshot panel 1](./images/resizable_1.png)
+![Screenshot panel 2](./images/resizable_2.png)
 
 The code that lets us achieve this resizable window uses the `juce::ResizableBorderComponent` from the JUCE class library[^1]. 
 
@@ -274,14 +290,4 @@ Overall this project was the best project I have got till now in this degree. It
 2. The ability to cut and join tracks.
 3. The app could use some *animations* to make it more fun to use.
 4. More controls and filters!
-
-## References
-
-1. JUCE Class Reference:
-
-2. JUCE Tutorials:
-
-## Links
-
-* Tutorial Video: 
 
