@@ -240,8 +240,8 @@ The below code does the magic:
 
 ```cpp
 // DeckPanel.h
-
 juce::ResizableBorderComponent* border;
+
 // DeckPanel.cpp
 DeckPanel::DeckPanel(...) {
     addChildComponent(border = new juce::ResizableBorderComponent(
